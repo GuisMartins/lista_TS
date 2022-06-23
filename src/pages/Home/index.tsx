@@ -3,11 +3,14 @@ import './styles.css';
 
 import { Card, CardProps } from '../../components/Card';
 
-import { User } from '../../interface/User'
-
 interface APIResponse {
   name: string;
   avatar_url: string;
+}
+
+interface User {
+  name: string;
+  avatar: string;
 }
 
 
@@ -27,7 +30,11 @@ export function Home() {
       })
     };
 
-    setStudents(prevState => [...prevState, newStudent]);
+    if(studentName.length < 2){
+     alert('Nome invalido')
+    }else{
+      setStudents(prevState => [...prevState, newStudent]);
+    }
   }
 
 
